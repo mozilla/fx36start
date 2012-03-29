@@ -8,8 +8,11 @@ the expense of another caching layer."""
 import codecs
 import os
 
-from django.conf import settings
-from django.core.cache import cache
+import settings
+
+
+# Don't even THINK this is thread-safe.
+CACHE = {}
 
 
 def parse(path):
@@ -32,28 +35,26 @@ def parse(path):
 
     return trans
 
+
 def load(lang):
     """Load the dotlang files for the specific lang and cache them in
     django."""
-    trans = {}
 
-    for f in settings.DOTLANG_FILES:
-        path = os.path.join(settings.ROOT, 'locale', lang, f)
-        trans.update(parse(path))
+    path = os.path.join(settings.ROOT, 'locale', '%s.lang' % f)
+    trans = parse(path)
 
-    cache.set('trans-%s' % lang, trans, settings.DOTLANG_CACHE)
+    CACHE['trans-%s' % lang] = trans
     return trans
+
 
 def translate(lang, text):
     """Translate a piece of text, loading the language's dotlang files
     if they aren't cached"""
 
     key = 'trans-%s' % lang
-    trans = cache.get(key)
+    trans = CACHE.get(key)
 
     if not trans:
         trans = load(lang)
 
     return trans.get(text, text)
-
-    

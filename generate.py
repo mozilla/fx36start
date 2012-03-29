@@ -6,6 +6,8 @@ import sys
 import urllib2
 from optparse import OptionParser
 
+import settings
+
 
 # Import vendor lib.
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
@@ -17,11 +19,10 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
 import jinja2
 
 
-CURRENT_PATH = os.path.dirname(__file__)
 
 ENV = jinja2.Environment(
     loader=jinja2.FileSystemLoader([
-        os.path.join(CURRENT_PATH, 'templates'),
+        os.path.join(settings.ROOT, 'templates'),
     )]), extensions=['jinja2.ext.i18n'])
 # FIXME: stub out gettext functionality
 ENV.install_null_translations()
@@ -36,7 +37,7 @@ OUTPUT_PATH = options.output_path if options.output_path else 'html'
 
 def copy_file(output_dir, fileName):
     """Helper function that copies a file to a new folder."""
-    resource_path = os.path.split(CURRENT_PATH)[0]
+    resource_path = os.path.split(settings.ROOT)[0]
     shutil.copyfile(os.path.join(resource_path, fileName),
                     os.path.join(output_dir, fileName))
 
@@ -56,10 +57,10 @@ def main():
         os.makedirs(OUTPUT_PATH)
 
     for folder in ['css', 'fonts', 'img', 'js']:
-        folder_path = os.path.join(CURRENT_PATH, OUTPUT_PATH, folder)
+        folder_path = os.path.join(settings.ROOT, OUTPUT_PATH, folder)
         if os.path.exists(folder_path):
             shutil.rmtree(folder_path)
-        shutil.copytree(os.path.join(CURRENT_PATH, folder), folder_path)
+        shutil.copytree(os.path.join(settings.ROOT, folder), folder_path)
 
     # Data to be passed to template
     data = {}
