@@ -1,9 +1,7 @@
-"""This library parses dotlang files migrated over from the old PHP
-system.
+"""This library parses dotlang files.
 
-It caches them using the django caching library, but it could
-potentially just use thread-local variables. Caching seems safer at
-the expense of another caching layer."""
+Lifted from Bedrock.
+"""
 
 import codecs
 import os

@@ -40,6 +40,7 @@ This software is licensed under the [Mozilla Tri-License][MPL]:
 
     Contributor(s):
       Matthew Riley MacPherson <tofumatt@mozilla.com>
+      James Long <jlong@mozilla.com>
       Fred Wenzel <fwenzel@mozilla.com>
 
     Alternatively, the contents of this file may be used under the terms of
