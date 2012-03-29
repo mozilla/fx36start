@@ -10,3 +10,6 @@ STATIC_FOLDERS = ['css', 'fonts', 'img', 'js']
 # Example languages.
 # Either put a fixed list here or write some code to parse out locale/.
 LANGS = ('de', 'en-US')
+
+# RTL languages.
+RTL_LANGS = ('ar', 'fa', 'he')

@@ -84,7 +84,10 @@ def main():
                        os.path.join(LANG_PATH, folder))
 
         # Data to be passed to template
-        data = {}
+        data = {
+            'LANG': lang,
+            'DIR': 'rtl' if lang in settings.RTL_LANGS else 'ltr',
+        }
 
         write_output(LANG_PATH, 'index.html', template.render(data))
 
