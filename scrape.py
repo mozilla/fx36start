@@ -5,30 +5,24 @@ import shutil
 import sys
 import urllib2
 from optparse import OptionParser
-from sgmllib import SGMLParser
 
 
-# Use our local copies of simplejson and jinja2
+# Import vendor lib.
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 'vendor'))
 sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
                                 'vendor', 'jinja2'))
 
 
-import simplejson as json
 import jinja2
 
 
-# mod_autoindex generated HTML containing builds:
-APACHE_QUERY_STRING = '?C=M;O=A'
-
 CURRENT_PATH = os.path.dirname(__file__)
 
-ENV = jinja2.Environment(loader=jinja2.FileSystemLoader([
-                                os.path.join(CURRENT_PATH, 'templates'),
-                                os.path.join(CURRENT_PATH, 'vendor',
-                                             'django-moz-header')]),
-                         extensions=['jinja2.ext.i18n'])
+ENV = jinja2.Environment(
+    loader=jinja2.FileSystemLoader([
+        os.path.join(CURRENT_PATH, 'templates'),
+    )]), extensions=['jinja2.ext.i18n'])
 # We use django-moz-header, so we need to stub out the gettext functionality
 # in those templates.
 ENV.install_null_translations()
