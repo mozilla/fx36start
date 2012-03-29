@@ -2,7 +2,7 @@ Firefox 3.6 Start Page
 ======================
 This is a very simple static website generator for the Firefox 3.6 start page.
 
-Based on [nocturnal][https://github.com/mozilla/nocturnal/], it takes a single
+Based on [nocturnal](https://github.com/mozilla/nocturnal/), it takes a single
 jinja2 template, throws in some gettext, and generates a bunch of static,
 localized output files.
 
@@ -12,7 +12,12 @@ Specify an output directory (it shouldn't be the same directory as the
 repo) and allow a few seconds for the script to scrape Mozilla's FTP
 server.
 
-    ./scrape.py --output-dir html
+    ./generate.py --output-dir html
+
+To delete the output dir before generating the output (careful!), use
+the --force option.
+
+    ./generate.py --output-dir html -f
 
 
 License
