@@ -17,22 +17,21 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
 
 
 import jinja2
-
-
+from dotlang.translate import translate
 
 ENV = jinja2.Environment(
     loader=jinja2.FileSystemLoader([
         os.path.join(settings.ROOT, 'templates'),
-    )]), extensions=['jinja2.ext.i18n'])
-# FIXME: stub out gettext functionality
-ENV.install_null_translations()
+    ]), extensions=[])
+
 
 optparser = OptionParser(usage='%prog --output-dir=/tmp/path/example')
 optparser.add_option("--output-dir", action="store", dest="output_path",
                      help="Specify the output directory")
 (options, args) = optparser.parse_args()
 
-OUTPUT_PATH = options.output_path if options.output_path else 'html'
+OUTPUT_PATH = (options.output_path if options.output_path else
+               os.path.join(settings.ROOT, 'html'))
 
 
 def copy_file(output_dir, fileName):
@@ -56,16 +55,30 @@ def main():
     if not os.path.exists(OUTPUT_PATH):
         os.makedirs(OUTPUT_PATH)
 
-    for folder in ['css', 'fonts', 'img', 'js']:
-        folder_path = os.path.join(settings.ROOT, OUTPUT_PATH, folder)
+    STATIC_PATH = os.path.join(OUTPUT_PATH, 'static')
+    for folder in settings.STATIC_FOLDERS:
+        folder_path = os.path.join(STATIC_PATH, folder)
         if os.path.exists(folder_path):
             shutil.rmtree(folder_path)
         shutil.copytree(os.path.join(settings.ROOT, folder), folder_path)
 
-    # Data to be passed to template
-    data = {}
+    for lang in settings.LANGS:
+        # Load _() translation shortcut for jinja templates and point it to dotlang.
+        ENV.globals['_'] = lambda txt: translate(lang, txt)
 
-    write_output(OUTPUT_PATH, 'index.html', template.render(data))
+        # Make language dir
+        LANG_PATH = os.path.join(OUTPUT_PATH, lang)
+        os.makedirs(LANG_PATH)
+
+        # symlink static folders into language dir
+        for folder in settings.STATIC_FOLDERS:
+            os.symlink(os.path.join('..', 'static', folder),
+                       os.path.join(LANG_PATH, folder))
+
+        # Data to be passed to template
+        data = {}
+
+        write_output(LANG_PATH, 'index.html', template.render(data))
 
 
 if __name__ == '__main__':
