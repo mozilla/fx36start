@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-
 import os
 import shutil
 import sys
@@ -28,6 +27,8 @@ ENV = jinja2.Environment(
 optparser = OptionParser(usage='%prog --output-dir=/tmp/path/example')
 optparser.add_option("--output-dir", action="store", dest="output_path",
                      help="Specify the output directory")
+optparser.add_option('-f', '--force', action='store_true', dest='force',
+                     default=False, help='Delete output dir if it exists.')
 (options, args) = optparser.parse_args()
 
 OUTPUT_PATH = (options.output_path if options.output_path else
@@ -52,8 +53,15 @@ def main():
     """Function run when script is run from the command line."""
     template = ENV.get_template('index.html')
 
-    if not os.path.exists(OUTPUT_PATH):
-        os.makedirs(OUTPUT_PATH)
+    if os.path.exists(OUTPUT_PATH):
+        if not options.force:
+            sys.stderr.write('Output path "%s" exists, please remove it or '
+                             'run with --force to overwrite automatically.\n' % (
+                                 OUTPUT_PATH))
+            sys.exit(1)
+        else:
+            shutil.rmtree(OUTPUT_PATH)
+    os.makedirs(OUTPUT_PATH)
 
     STATIC_PATH = os.path.join(OUTPUT_PATH, 'static')
     for folder in settings.STATIC_FOLDERS:
