@@ -4,6 +4,7 @@ Lifted from Bedrock.
 """
 
 import codecs
+import logging
 import os
 
 import settings
@@ -45,7 +46,7 @@ def load(lang):
     return trans
 
 
-def translate(lang, text):
+def translate(lang, text, warn=True):
     """Translate a piece of text, loading the language's dotlang files
     if they aren't cached"""
 
@@ -55,4 +56,10 @@ def translate(lang, text):
     if not trans:
         trans = load(lang)
 
-    return trans.get(text, text)
+    try:
+        translated = trans[text]
+    except KeyError:
+        if warn:
+            logging.warning('Unknown text "%s" for language %s' % (text, lang))
+        translated = text
+    return translated

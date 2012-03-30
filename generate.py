@@ -29,6 +29,9 @@ optparser.add_option("--output-dir", action="store", dest="output_path",
                      help="Specify the output directory")
 optparser.add_option('-f', '--force', action='store_true', dest='force',
                      default=False, help='Delete output dir if it exists.')
+optparser.add_option('--nowarn', action='store_false', dest='warn',
+                     default=True, help=("Don't warn if unknown L10n strings "
+                                         "are encountered"))
 (options, args) = optparser.parse_args()
 
 OUTPUT_PATH = (options.output_path if options.output_path else
@@ -72,7 +75,7 @@ def main():
 
     for lang in settings.LANGS:
         # Load _() translation shortcut for jinja templates and point it to dotlang.
-        ENV.globals['_'] = lambda txt: translate(lang, txt)
+        ENV.globals['_'] = lambda txt: translate(lang, txt, warn=options.warn)
 
         # Make language dir
         LANG_PATH = os.path.join(OUTPUT_PATH, lang)
