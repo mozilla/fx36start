@@ -89,7 +89,7 @@ def extract_lang(potfile):
             os.makedirs(output_dir)
 
         with codecs.open(output_file, 'a+', 'utf-8') as out:
+            # Keep existing files in place, append new strings.
             for msg in parse_po(potfile):
-                # Use already translated string if exists, English otherwise.
                 if msg not in lang_trans:
                     out.write(";%s\n%s\n\n\n" % (msg, msg))
