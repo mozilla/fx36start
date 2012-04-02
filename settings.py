@@ -12,6 +12,9 @@ LOCALE_DIR = os.path.join(ROOT, 'locale')
 if not os.path.exists(LOCALE_DIR):
     LOCALE_DIR = os.path.join(ROOT, 'locale_test')
 
+# .lang file, filename
+LANG_FILENAME = 'fx36start.lang'
+
 # Example languages.
 # Either put a fixed list here or write some code to parse out locale/.
 LANGS = ('de', 'en-US')

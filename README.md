@@ -32,6 +32,14 @@ the --force option.
 
     ./generate.py --output-dir html -f
 
+Extracting .lang files
+~~~~~~~~~~~~~~~~~~~~~~
+If you change localizable strings in the templates, you'll want to extract those
+strings and add them to the .lang files.
+
+    ./l10n_extract.py
+
+should do the trick. This relies on gettext for the extraction.
 
 License
 -------
