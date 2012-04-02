@@ -8,6 +8,19 @@ bunch of static, localized output files.
 
 Usage
 -----
+Checkout
+~~~~~~~~
+
+    git clone git://github.com/mozilla/fx36start.git
+
+The localization files live in SVN. Check them out into the subdirectory
+"locale" to pull in translations.
+
+    cd fx36start
+    svn checkout https://svn.mozilla.org/projects/l10n-misc/trunk/fx36start/locale/
+
+Generating output files
+~~~~~~~~~~~~~~~~~~~~~~~
 Specify an output directory (it shouldn't be the same directory as the
 repo) and allow a few seconds for the script to scrape Mozilla's FTP
 server.
