@@ -1,16 +1,14 @@
-Firefox 3.6 Start Page
-======================
+# Firefox 3.6 Start Page
+
 This is a very simple static website generator for the Firefox 3.6 start page.
 
 Based on [nocturnal](https://github.com/mozilla/nocturnal/), it takes a single
 jinja2 template, throws in some translations from .lang files,, and generates a
 bunch of static, localized output files.
 
-Usage
------
+## Usage
 
-Checkout
-~~~~~~~~
+### Checkout
 
     git clone git://github.com/mozilla/fx36start.git
 
@@ -20,8 +18,7 @@ The localization files live in SVN. Check them out into the subdirectory
     cd fx36start
     svn checkout https://svn.mozilla.org/projects/l10n-misc/trunk/fx36start/locale/
 
-Generating output files
-~~~~~~~~~~~~~~~~~~~~~~~
+### Generating output files
 
 Specify an output directory (it shouldn't be the same directory as the
 repo) and allow a few seconds for the script to scrape Mozilla's FTP
@@ -34,8 +31,7 @@ the --force option.
 
     ./generate.py --output-dir html -f
 
-Extracting .lang files
-~~~~~~~~~~~~~~~~~~~~~~
+### Extracting .lang files
 
 If you change localizable strings in the templates, you'll want to extract those
 strings and add them to the .lang files.
@@ -44,8 +40,8 @@ strings and add them to the .lang files.
 
 should do the trick. This relies on gettext for the extraction.
 
-License
--------
+## License
+
 This software is licensed under the [Mozilla Tri-License][MPL]:
 
     ***** BEGIN LICENSE BLOCK *****
