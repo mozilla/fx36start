@@ -64,7 +64,7 @@ def main():
     """Function run when script is run from the command line."""
     template = ENV.get_template('index.html')
 
-    sys.stdout.write("Writing " + options.version + " template to " + OUTPUT_PATH + "...\n")
+    sys.stdout.write("Writing " + options.version + " template to " + OUTPUT_PATH + "\n")
 
     if os.path.exists(OUTPUT_PATH):
         if not options.force:
