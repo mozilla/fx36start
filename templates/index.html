@@ -18,7 +18,7 @@
         </tr>
         <tr>
           <td>
-            <table border="0" cellpadding="0" cellspacing="0">
+            <table border="0" cellpadding="0" cellspacing="0" dir="ltr">
               <tbody>
                 <tr>
                   <td>
@@ -40,12 +40,12 @@
         </tr>
         <tr>
           <td>
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" dir="ltr">
               <tbody>
                 <tr>
                   <td style="border-left: 1px solid #ababab;" width="4">&nbsp;</td>
                   <td width="534">
-                    <table cellpadding="0" cellspacing="0">
+                    <table cellpadding="0" cellspacing="0" dir="{{ DIR }}">
                       <tbody>
                         <tr>
                           <td width="40">
@@ -61,10 +61,10 @@
                                 </tr>
                               </tbody>
                             </table>
-                            <table cellpadding="0" cellspacing="0" width="100%" style="text-align: left;">
+                            <table cellpadding="0" cellspacing="0" width="494" dir="{{ DIR }}">
                               <tbody>
                                 <tr>
-                                  <td nowrap="nowrap">
+                                  <td nowrap="nowrap" style="width: 394; overflow: hidden;">
                                     <input name="client" value="firefox-a" type="hidden">
                                     <input name="rls" value="org.mozilla:en-US:official" type="hidden">
                                     <input name="channel" value="s" type="hidden">
@@ -72,14 +72,16 @@
                                     <input name="source" value="hp" type="hidden">
                                     <input name="biw" type="hidden">
                                     <input name="bih" type="hidden">
-                                    <input style="outline: medium none;" spellcheck="false" autocomplete="off" dir="ltr" id="sf" maxlength="256" name="q" size="50">
+                                    <input style="outline: medium none; width: 374px;" spellcheck="false" autocomplete="off" dir="ltr" id="sf" maxlength="256" name="q">
                                     <br>
                                     <input value="{{ _('Google Search') }}" name="btnG" type="submit">
                                   </td>
-                                  <td nowrap="nowrap" valign="top" style="padding-left: 5px; line-height: 12px;">
-                                    <font size="-2">&nbsp;&nbsp;<a href="http://www.google.com/advanced_search?hl=en">{{ _('Advanced search') }}</a>
-                                    <br>&nbsp;&nbsp;<a href="http://www.google.com/preferences?hl=en">{{ _('Preferences') }}</a>
-                                    <br>&nbsp;</font>
+                                  <td nowrap="nowrap" valign="top" style="width: 100px; line-height: 12px;">
+                                    <font size="-2">
+                                        <a href="http://www.google.com/advanced_search?hl=en">{{ _('Advanced search') }}</a>
+                                        <br>
+                                        <a href="http://www.google.com/preferences?hl=en">{{ _('Preferences') }}</a>
+                                    </font>
                                   </td>
                                   <td>&nbsp;</td>
                                 </tr>
@@ -99,7 +101,7 @@
         </tr>
         <tr>
           <td>
-            <table cellpadding="0" cellspacing="0">
+            <table cellpadding="0" cellspacing="0" dir="ltr">
               <tbody>
                 <tr>
                   <td width="47">
@@ -119,16 +121,21 @@
         </tr>
         <tr>
           <td>
-            <table cellpadding="0" cellspacing="0" width="100%">
+            <table cellpadding="0" cellspacing="0" width="100%" dir="ltr">
               <tbody>
                 <tr>
                   <td>
                     <br>
-                    <table border="0" cellpadding="4" cellspacing="0" width="100%">
+                    <table border="0" cellpadding="4" cellspacing="0" width="545">
                       <tbody>
                         <tr>
-                          <td> <img alt="" src="img/Fx4Launch.png" height="50" width="40"> </td> 
-                          <td> <font size="-1">{{ _('You\'re not on the latest version of Firefox.') }} <a href="http://www.mozilla.com/?WT.mc_id=s17">{{ _('Upgrade today') }}</a> {{ _('to get the best of the Web!') }} </font> </td> 
+                          <td><img alt="" src="img/Fx4Launch.png" height="50" width="40"></td> 
+                          <td dir="{{ DIR }}">
+                            <font size="-1">
+                              {{ _('You\'re not on the latest version of Firefox.') }}
+                              <a href="http://www.mozilla.com/?WT.mc_id=s17">{{ _('Upgrade today') }}</a> {{ _('to get the best of the Web!') }}
+                            </font>
+                          </td>
                         </tr>
                       </tbody>
                     </table>
@@ -136,7 +143,12 @@
                     <table border="0" cellpadding="4" cellspacing="0" width="100%">
                       <tbody>
                         <tr> 
-                          <td align="center" nowrap="nowrap"><font size="-1"><a href="http://www.mozilla.org/about/?utm_source=gsnippet&amp;utm_content=aboutlink&amp;utm_campaign=s170210">{{ _('About Mozilla') }}</a> - <a href="http://support.mozilla.com/en-US/kb/?S100719_support&amp;WT.mc_ev=click">{{ _('Firefox Support') }}</a></font></td> 
+                          <td align="center" nowrap="nowrap">
+                            <font size="-1">
+                              <a href="http://www.mozilla.org/about/?utm_source=gsnippet&amp;utm_content=aboutlink&amp;utm_campaign=s170210">{{ _('About Mozilla') }}</a>
+                              - <a href="http://support.mozilla.com/en-US/kb/?S100719_support&amp;WT.mc_ev=click">{{ _('Firefox Support') }}</a>
+                            </font>
+                          </td> 
                         </tr>
                       </tbody>
                     </table>
@@ -157,28 +169,6 @@
   </form>
 </div>
 
-<div id="xjsd">
-  <script src="js/SjgMtU3s-Ns.js"></script>
-</div>
-
-<div id="xjsi">
-<script>if(google.y)google.y.first=[];google.register=google.register||function(i,l){google.y.first.push(function(){google.register(i,l);});};google.dlj=function(b){window.setTimeout(function(){var a=document.createElement("script");a.src=b;document.getElementById("xjsd").appendChild(a)},0)};
-if(google.y)google.y.first=[];if(!google.xjs){google.dstr=[];google.rein=[];if(google.timers&&google.timers.load.t){google.timers.load.t.xjsls=new Date().getTime();}google.dlj('/extern_js/f/CgJlbhICdXMrMFo4ACwrMA44ACwrMAo4AJoCAmhlLCswGDgALIACa5ACcA/SjgMtU3s-Ns.js');google.xjs=1}google.neegg=1;(function(){
-function a(){if(document.documentElement&&document.documentElement.clientHeight)return document.documentElement.clientHeight;else if(document.body&&document.body.clientHeight)return document.body.clientHeight;return 0}function b(d,k,e){var l=d.offsetHeight?e-d.offsetHeight:e+10,m=k-l-10,f=Math.max(m,0);d.style.height=f+"px";return f}var c=false,g;function h(){if(google.sn=="web"){i();return}if(g)b(g,a(),document.body.offsetHeight)}function j(){if(google.sn=="web"||c)return;g=document.getElementById("footer");
-if(!g)return;if(window.addEventListener)window.addEventListener("resize",h,false);else window.attachEvent("onresize",h);g.style.display="block";h();c=true}function i(){if(!c)return;if(window.removeEventListener)window.removeEventListener("resize",h,false);else window.detachEvent("onresize",h);c=false;g=document.getElementById("footer");g&&(g.style.display="none")}if(google.rein&&google.dstr){google.rein.push(function(){j()});google.dstr.push(function(){i()})}j();
-})();
-;google.mc=[];google.mc=google.mc.concat([[14,{}],[10,{"client":"firefox-hp","dh":true,"ds":"","exp":"frgbld","host":"google.com","jsonp":true,"lyrs":17,"msgs":{"lcky":"I\u0026#39;m Feeling Lucky","lml":"Learn more","psrc":"This search was removed from your \u003Ca href=\"/history\"\u003EWeb History\u003C/a\u003E","psrl":"Remove","srch":"Google Search"},"ovr":{"fm":1,"l":1,"p":1},"pq":"","scd":10,"sce":4}],[24,{}]]);google.y.first.push(function(){if(google.med){google.med('init');google.initHistory();google.med('history');}google.History&&google.History.initialize('/firefox?client\x3dfirefox-a\x26amp;rls\x3dorg.mozilla:en-US:official')});if(google.j&&google.j.en&&google.j.xi){window.setTimeout(google.j.xi,0);}
-</script>
-</div>
-<table class="gstl_0 gssb_c" style="width: 408px; display: none; top: 242px; left: 383px; position: absolute;" cellpadding="0" cellspacing="0"><tbody>
-<tr>
-<td class="gssb_f">
-</td>
-<td style="width: 100%;" class="gssb_e">
-</td>
-</tr></tbody>
-</table>
-
 <div id="modal">
   <div id="modal-top"></div>
   <img id="alert" src="img/alert.png" alt="" width="54" height="46" />
@@ -195,9 +185,14 @@ if(!g)return;if(window.addEventListener)window.addEventListener("resize",h,false
     <p>{{ _('Upgrade today for the latest in speed and security.') }}</p>
   {% endif %}
 
-    <a href="http://mozilla.org/firefox" class="download"><span>{{ _('Free Download') }}</span></a>
+    <!-- if translation 'free download' is long, add 'no-arrow' class to <a> tag below -->
+    <a href="http://mozilla.org/firefox" class="download" title="{{ _('Free Download') }}">
+      <span>{{ _('Free Download') }}</span>
+      <img src="img/down-arrow.png" width="34" height="27" />
+      <div class="clear"></div>
+    </a>
 
-    <a href="" class="small dismiss">{{ _('No thanks, I\'ll risk it.') }}</a>
+    <a href="#close" class="small dismiss">{{ _('No thanks, I\'ll risk it.') }}</a>
 
   </div>
   <div class="clear"></div>
@@ -207,8 +202,6 @@ if(!g)return;if(window.addEventListener)window.addEventListener("resize",h,false
 
 <script src="js/jquery-1.7.2.min.js"></script>
 <script src="js/ffx36.js"></script>
-
-<script src="js/sem_f425299a39d623cac0aeb32549758f70.js"></script>
 
 </body>
 </html>
