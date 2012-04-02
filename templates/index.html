@@ -2,10 +2,9 @@
 <html lang="{{ LANG }}" dir="{{ DIR }}">
 <head>
   <meta charset="utf-8">
-  <title>...</title>
+  <title>Mozilla Firefox Start Page</title>
   <link rel="stylesheet" media="screen,projection,tv" href="css/common.css">
   <link rel="icon" type="image/png" href="img/favicon.png">
-  <!--[if IE]><link rel="shortcut icon" href="img/favicon.ico"><![endif]-->
 </head>
 <body>
 
@@ -28,10 +27,10 @@
                     <div style="background: url('img/gradsprite2.png') repeat-x scroll 0pt 0pt transparent; height: 95px; margin-top: 21px; width: 100%;"></div>
                   </td>
                   <td>
-                    <div title="Firefox Logo" style="background: url('img/sprite2.png') no-repeat scroll -440px 0pt transparent; height: 116px; width: 105px;"></div>
+                    <div title="{{ _('Firefox Logo') }}" style="background: url('img/sprite2.png') no-repeat scroll -440px 0pt transparent; height: 116px; width: 105px;"></div>
                   </td>
                   <td>
-                    <div title="Firefox Logo" style="background: url('img/sprite2.png') no-repeat scroll -545px 0pt transparent; height: 116px; margin-right: 4px; width: 15px;"></div>
+                    <div title="{{ _('Firefox Logo') }}" style="background: url('img/sprite2.png') no-repeat scroll -545px 0pt transparent; height: 116px; margin-right: 4px; width: 15px;"></div>
                   </td>
                 </tr>
               </tbody>
@@ -132,8 +131,8 @@
                           <td><img alt="" src="img/Fx4Launch.png" height="50" width="40"></td> 
                           <td dir="{{ DIR }}">
                             <font size="-1">
-                              {{ _('You\'re not on the latest version of Firefox.') }}
-                              <a href="http://www.mozilla.com/?WT.mc_id=s17">{{ _('Upgrade today') }}</a> {{ _('to get the best of the Web!') }}
+                              {{ _("You're not on the latest version of Firefox.") }}
+                              {{ _('<a href="{0}">Upgrade today</a> to get the best of the Web!')|f('http://www.mozilla.com/?WT.mc_id=s17') }}
                             </font>
                           </td>
                         </tr>
@@ -185,14 +184,14 @@
     <p>{{ _('Upgrade today for the latest in speed and security.') }}</p>
   {% endif %}
 
-    <!-- if translation 'free download' is long, add 'no-arrow' class to <a> tag below -->
+    {# if translation 'free download' is long, add 'no-arrow' class to <a> tag below #}
     <a href="http://mozilla.org/firefox" class="download" title="{{ _('Free Download') }}">
       <span>{{ _('Free Download') }}</span>
       <img src="img/down-arrow.png" width="34" height="27" />
       <div class="clear"></div>
     </a>
 
-    <a href="#close" class="small dismiss">{{ _('No thanks, I\'ll risk it.') }}</a>
+    <a href="#close" class="small dismiss">{{ _("No thanks, I'll risk it.") }}</a>
 
   </div>
   <div class="clear"></div>
