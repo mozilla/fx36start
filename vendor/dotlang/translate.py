@@ -39,7 +39,8 @@ def load(lang):
     """Load the dotlang files for the specific lang and cache them in
     django."""
 
-    path = os.path.join(settings.ROOT, 'locale', '%s.lang' % lang)
+    lang_dirname = lang.replace('-', '_')
+    path = os.path.join(settings.LOCALE_DIR, lang_dirname, 'fx36start.lang')
     trans = parse(path)
 
     CACHE['trans-%s' % lang] = trans
