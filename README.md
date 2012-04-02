@@ -8,6 +8,7 @@ bunch of static, localized output files.
 
 Usage
 -----
+
 Checkout
 ~~~~~~~~
 
@@ -21,6 +22,7 @@ The localization files live in SVN. Check them out into the subdirectory
 
 Generating output files
 ~~~~~~~~~~~~~~~~~~~~~~~
+
 Specify an output directory (it shouldn't be the same directory as the
 repo) and allow a few seconds for the script to scrape Mozilla's FTP
 server.
@@ -34,6 +36,7 @@ the --force option.
 
 Extracting .lang files
 ~~~~~~~~~~~~~~~~~~~~~~
+
 If you change localizable strings in the templates, you'll want to extract those
 strings and add them to the .lang files.
 
