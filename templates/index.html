@@ -3,21 +3,212 @@
 <head>
   <meta charset="utf-8">
   <title>...</title>
-  <link rel="stylesheet" media="screen,projection,tv" href="css/removeme.css">
+  <link rel="stylesheet" media="screen,projection,tv" href="css/common.css">
   <link rel="icon" type="image/png" href="img/favicon.png">
   <!--[if IE]><link rel="shortcut icon" href="img/favicon.ico"><![endif]-->
 </head>
 <body>
 
-  <h1>{{ _('Hello') }}</h1>
+<div style="margin-top: 40px;">
+  <form action="http://google.com/search" name="f">
+    <table id="frame" style="margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td><img height="20" width="1"></td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td>
+                    <div title="{{ _('Firefox Start') }}" style="background: url('img/sprite2.png') no-repeat scroll 0% 0% transparent; height: 95px; margin-top: 21px; width: 430px;"></div>
+                  </td>
+                  <td style="overflow: hidden;" width="100%">
+                    <div style="background: url('img/gradsprite2.png') repeat-x scroll 0pt 0pt transparent; height: 95px; margin-top: 21px; width: 100%;"></div>
+                  </td>
+                  <td>
+                    <div title="Firefox Logo" style="background: url('img/sprite2.png') no-repeat scroll -440px 0pt transparent; height: 116px; width: 105px;"></div>
+                  </td>
+                  <td>
+                    <div title="Firefox Logo" style="background: url('img/sprite2.png') no-repeat scroll -545px 0pt transparent; height: 116px; margin-right: 4px; width: 15px;"></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+                <tr>
+                  <td style="border-left: 1px solid #ababab;" width="4">&nbsp;</td>
+                  <td width="534">
+                    <table cellpadding="0" cellspacing="0">
+                      <tbody>
+                        <tr>
+                          <td width="40">
+                            <img height="1" width="40">
+                          </td>
+                          <td width="494">
+                            <table cellpadding="0" cellspacing="0">
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <div title="Google" style="background: url('img/sprite2.png') no-repeat scroll 0pt -95px transparent; height: 23px; margin: 5px 0pt 4px 4px; width: 80px;"></div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <table cellpadding="0" cellspacing="0" width="100%" style="text-align: left;">
+                              <tbody>
+                                <tr>
+                                  <td nowrap="nowrap">
+                                    <input name="client" value="firefox-a" type="hidden">
+                                    <input name="rls" value="org.mozilla:en-US:official" type="hidden">
+                                    <input name="channel" value="s" type="hidden">
+                                    <input name="hl" value="en" type="hidden">
+                                    <input name="source" value="hp" type="hidden">
+                                    <input name="biw" type="hidden">
+                                    <input name="bih" type="hidden">
+                                    <input style="outline: medium none;" spellcheck="false" autocomplete="off" dir="ltr" id="sf" maxlength="256" name="q" size="50">
+                                    <br>
+                                    <input value="{{ _('Google Search') }}" name="btnG" type="submit">
+                                  </td>
+                                  <td nowrap="nowrap" valign="top" style="padding-left: 5px; line-height: 12px;">
+                                    <font size="-2">&nbsp;&nbsp;<a href="http://www.google.com/advanced_search?hl=en">{{ _('Advanced search') }}</a>
+                                    <br>&nbsp;&nbsp;<a href="http://www.google.com/preferences?hl=en">{{ _('Preferences') }}</a>
+                                    <br>&nbsp;</font>
+                                  </td>
+                                  <td>&nbsp;</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td style="border-right: 1px solid #b0b0b0;" width="4">&nbsp;</td>
+                  <td width="19">&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0">
+              <tbody>
+                <tr>
+                  <td width="47">
+                    <div style="background: url('img/sprite2.png') no-repeat scroll 0pt -118px transparent; height: 34px; width: 47px;"></div>
+                  </td>
+                  <td valign="bottom" width="1">
+                    <div style="background: none repeat scroll 0% 0% rgb(176, 176, 176); height: 1px; width: 1px"></div>
+                  </td>
+                  <td width="497">
+                    <div style="background: url('img/sprite2.png') no-repeat scroll -48px -118px transparent; height: 34px; width: 497px;"></div>
+                  </td>
+                  <td width="19">&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0" width="100%">
+              <tbody>
+                <tr>
+                  <td>
+                    <br>
+                    <table border="0" cellpadding="4" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr>
+                          <td> <img alt="" src="img/Fx4Launch.png" height="50" width="40"> </td> 
+                          <td> <font size="-1">{{ _('You\'re not on the latest version of Firefox.') }} <a href="http://www.mozilla.com/?WT.mc_id=s17">{{ _('Upgrade today') }}</a> {{ _('to get the best of the Web!') }} </font> </td> 
+                        </tr>
+                      </tbody>
+                    </table>
+                    <br> 
+                    <table border="0" cellpadding="4" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr> 
+                          <td align="center" nowrap="nowrap"><font size="-1"><a href="http://www.mozilla.org/about/?utm_source=gsnippet&amp;utm_content=aboutlink&amp;utm_campaign=s170210">{{ _('About Mozilla') }}</a> - <a href="http://support.mozilla.com/en-US/kb/?S100719_support&amp;WT.mc_ev=click">{{ _('Firefox Support') }}</a></font></td> 
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td><img height="1" width="19"></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <input name="oq" type="hidden">
+    <input name="aq" type="hidden">
+    <input name="aqi" type="hidden">
+    <input name="aql" type="hidden">
+    <input name="gs_l" type="hidden">
+  </form>
+</div>
 
-  <p>{{ _('This is '
-          'a really '
-          'long string.') }}</p>
+<div id="xjsd">
+  <script src="js/SjgMtU3s-Ns.js"></script>
+</div>
 
-  <p>{{ _('I am untranslated in the lang file.') }}</p>
+<div id="xjsi">
+<script>if(google.y)google.y.first=[];google.register=google.register||function(i,l){google.y.first.push(function(){google.register(i,l);});};google.dlj=function(b){window.setTimeout(function(){var a=document.createElement("script");a.src=b;document.getElementById("xjsd").appendChild(a)},0)};
+if(google.y)google.y.first=[];if(!google.xjs){google.dstr=[];google.rein=[];if(google.timers&&google.timers.load.t){google.timers.load.t.xjsls=new Date().getTime();}google.dlj('/extern_js/f/CgJlbhICdXMrMFo4ACwrMA44ACwrMAo4AJoCAmhlLCswGDgALIACa5ACcA/SjgMtU3s-Ns.js');google.xjs=1}google.neegg=1;(function(){
+function a(){if(document.documentElement&&document.documentElement.clientHeight)return document.documentElement.clientHeight;else if(document.body&&document.body.clientHeight)return document.body.clientHeight;return 0}function b(d,k,e){var l=d.offsetHeight?e-d.offsetHeight:e+10,m=k-l-10,f=Math.max(m,0);d.style.height=f+"px";return f}var c=false,g;function h(){if(google.sn=="web"){i();return}if(g)b(g,a(),document.body.offsetHeight)}function j(){if(google.sn=="web"||c)return;g=document.getElementById("footer");
+if(!g)return;if(window.addEventListener)window.addEventListener("resize",h,false);else window.attachEvent("onresize",h);g.style.display="block";h();c=true}function i(){if(!c)return;if(window.removeEventListener)window.removeEventListener("resize",h,false);else window.detachEvent("onresize",h);c=false;g=document.getElementById("footer");g&&(g.style.display="none")}if(google.rein&&google.dstr){google.rein.push(function(){j()});google.dstr.push(function(){i()})}j();
+})();
+;google.mc=[];google.mc=google.mc.concat([[14,{}],[10,{"client":"firefox-hp","dh":true,"ds":"","exp":"frgbld","host":"google.com","jsonp":true,"lyrs":17,"msgs":{"lcky":"I\u0026#39;m Feeling Lucky","lml":"Learn more","psrc":"This search was removed from your \u003Ca href=\"/history\"\u003EWeb History\u003C/a\u003E","psrl":"Remove","srch":"Google Search"},"ovr":{"fm":1,"l":1,"p":1},"pq":"","scd":10,"sce":4}],[24,{}]]);google.y.first.push(function(){if(google.med){google.med('init');google.initHistory();google.med('history');}google.History&&google.History.initialize('/firefox?client\x3dfirefox-a\x26amp;rls\x3dorg.mozilla:en-US:official')});if(google.j&&google.j.en&&google.j.xi){window.setTimeout(google.j.xi,0);}
+</script>
+</div>
+<table class="gstl_0 gssb_c" style="width: 408px; display: none; top: 242px; left: 383px; position: absolute;" cellpadding="0" cellspacing="0"><tbody>
+<tr>
+<td class="gssb_f">
+</td>
+<td style="width: 100%;" class="gssb_e">
+</td>
+</tr></tbody>
+</table>
 
-  <script src="js/removeme.js"></script>
+<div id="modal">
+  <div id="modal-top"></div>
+  <img id="alert" src="img/alert.png" alt="" width="54" height="46" />
+  <div id="modal-content">
+
+  {% if VERSION == 'urgent' %}
+    <strong>{{ _('Important') }}:</strong>
+    <h1>{{ _('Your Firefox is out of date!') }}</h1>
+
+    <p>{{ _('Please download the latest version to continue.') }}</p>
+  {% else %}
+    <h1>{{ _('Your browser is out of date.') }}</h1>
+
+    <p>{{ _('Upgrade today for the latest in speed and security.') }}</p>
+  {% endif %}
+
+    <a href="http://mozilla.org/firefox" class="download"><span>{{ _('Free Download') }}</span></a>
+
+    <a href="" class="small dismiss">{{ _('No thanks, I\'ll risk it.') }}</a>
+
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div id="shade" class="{{ VERSION }}"></div>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/ffx36.js"></script>
+
+<script src="js/sem_f425299a39d623cac0aeb32549758f70.js"></script>
 
 </body>
 </html>
