@@ -17,7 +17,7 @@ LANG_FILENAME = 'fx36start.lang'
 
 # Example languages.
 # Either put a fixed list here or write some code to parse out locale/.
-LANGS = ('de', 'en-US')
+LANGS = ('de', 'en-US', 'he')
 
 # RTL languages.
 RTL_LANGS = ('ar', 'fa', 'he')
