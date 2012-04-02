@@ -16,12 +16,17 @@ sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__)),
 
 
 import jinja2
+
+import helpers
 from dotlang.translate import translate
+
 
 ENV = jinja2.Environment(
     loader=jinja2.FileSystemLoader([
         os.path.join(settings.ROOT, 'templates'),
     ]), extensions=[])
+# Hook up template filters.
+ENV.filters['f'] = helpers.f  # |f(...)
 
 
 optparser = OptionParser(usage='%prog --output-dir=/tmp/path/example')
