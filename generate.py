@@ -39,7 +39,8 @@ optparser.add_option('--nowarn', action='store_false', dest='warn',
                      default=True, help=("Don't warn if unknown L10n strings "
                                          "are encountered"))
 optparser.add_option('-v', '--version', action='store', dest='version',
-                    default='', help="Version to generate. Accepts 'passive' or 'urgent'")
+                    default=settings.BUILD_VERSION,
+                    help="Version to generate. Accepts 'passive' or 'urgent'")
 (options, args) = optparser.parse_args()
 
 OUTPUT_PATH = (options.output_path if options.output_path else
@@ -65,12 +66,10 @@ def main():
     template = ENV.get_template('index.html')
 
     # allow parameter to override settings build version
-    if options.version != '':
-        build_version = options.version
-    else:
-        build_version = settings.BUILD_VERSION
+    if options.version not in ('passive', 'urgent'):
+        options.version = settings.BUILD_VERSION
 
-    sys.stdout.write("Writing %s template to %s\n" % (build_version, OUTPUT_PATH))
+    sys.stdout.write("Writing %s template to %s\n" % (options.version, OUTPUT_PATH))
 
     if os.path.exists(OUTPUT_PATH):
         if not options.force:
@@ -105,7 +104,7 @@ def main():
         data = {
             'LANG': lang,
             'DIR': 'rtl' if lang in settings.RTL_LANGS else 'ltr',
-            'VERSION': build_version,
+            'VERSION': options.version,
         }
 
         # Load _() translation shortcut for jinja templates and point it to dotlang.
