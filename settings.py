@@ -15,9 +15,29 @@ if not os.path.exists(LOCALE_DIR):
 # .lang file, filename
 LANG_FILENAME = 'fx36start.lang'
 
-# Example languages.
-# Either put a fixed list here or write some code to parse out locale/.
-LANGS = ('de', 'en-US', 'he')
+# List of languages.
+LANGS = (
+    'af', 'ar', 'as', 'ast', 'be', 'bg', 'bn-BD', 'bn-IN', 'ca', 'cs', 'cy',
+    'da', 'de', 'el', 'en-GB', 'en-US', 'eo', 'es-AR', 'es-CL', 'es-ES',
+    'es-MX', 'et', 'eu', 'fa', 'fi', 'fr', 'fy-NL', 'ga-IE', 'gd', 'gl',
+    'gu-IN', 'he', 'hi-IN', 'hr', 'hu', 'id', 'is', 'it', 'ja', 'ka', 'kk',
+    'kn', 'ko', 'ku', 'lt', 'lv', 'mk', 'ml', 'mn', 'mr', 'nb-NO', 'nl',
+    'nn-NO', 'oc', 'or', 'pa-IN', 'pl', 'pt-BR', 'pt-PT', 'rm', 'ro', 'ru',
+    'si', 'sk', 'sl', 'sq', 'sr', 'sv-SE', 'ta', 'ta-LK', 'te', 'th', 'tr',
+    'uk', 'vi', 'zh-CN', 'zh-TW',
+)
 
 # RTL languages.
 RTL_LANGS = ('ar', 'fa', 'he')
+
+# Language fallbacks. Langs listed here will be symlinked to their respective
+# fallbacks rather than generated on their owns. Both sides must exist in
+# LANGS.
+LANG_FALLBACK = {
+    # 'be': 'ru',
+    'ka': 'en-US',
+    #'mn': 'ru',
+    #'nn-NO': 'nb-NO',
+    'oc': 'fr',
+    #'ta': 'FIXME'
+}

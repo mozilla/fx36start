@@ -80,6 +80,11 @@ def lang_translations(lang_file):
 def extract_lang(potfile):
     """Convert .pot file to .lang file."""
     for lang in settings.LANGS:
+        if lang in settings.LANG_FALLBACK:
+            sys.stderr.write('Skipping %s (falls back to %s)\n' % (
+                lang, settings.LANG_FALLBACK[lang]))
+            continue
+
         sys.stderr.write('Creating %s/%s\n' % (lang, settings.LANG_FILENAME))
         output_file = join(settings.LOCALE_DIR, lang, settings.LANG_FILENAME)
         lang_trans = lang_translations(output_file)  # Existing translations

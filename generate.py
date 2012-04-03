@@ -79,17 +79,16 @@ def main():
     STATIC_PATH = os.path.join(OUTPUT_PATH, 'static')
     for folder in settings.STATIC_FOLDERS:
         folder_path = os.path.join(STATIC_PATH, folder)
-        if os.path.exists(folder_path):
-            shutil.rmtree(folder_path)
         shutil.copytree(os.path.join(settings.ROOT, folder), folder_path)
 
     for lang in settings.LANGS:
-        # Load _() translation shortcut for jinja templates and point it to dotlang.
-        ENV.globals['_'] = lambda txt: translate(lang, txt, warn=options.warn)
-
-        # Make language dir
-        LANG_PATH = os.path.join(OUTPUT_PATH, lang)
-        os.makedirs(LANG_PATH)
+        # Make language dir, or symlink to fallback language
+        LANG_PATH = os.path.join(OUTPUT_PATH, lang.lower())
+        if lang in settings.LANG_FALLBACK:
+            os.symlink(settings.LANG_FALLBACK[lang], LANG_PATH)
+            continue
+        else:
+            os.makedirs(LANG_PATH)
 
         # symlink static folders into language dir
         for folder in settings.STATIC_FOLDERS:
@@ -102,6 +101,9 @@ def main():
             'DIR': 'rtl' if lang in settings.RTL_LANGS else 'ltr',
             'VERSION': options.version,
         }
+
+        # Load _() translation shortcut for jinja templates and point it to dotlang.
+        ENV.globals['_'] = lambda txt: translate(lang, txt, warn=options.warn)
 
         write_output(LANG_PATH, 'index.html', template.render(data))
 
