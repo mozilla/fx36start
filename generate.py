@@ -83,7 +83,8 @@ def main():
     os.makedirs(OUTPUT_PATH)
 
     # Copy "root" files into output dir's root.
-    for f in glob.glob(os.path.join(settings.ROOT, 'root', '*')):
+    for f in (glob.glob(os.path.join(settings.ROOT, 'root', '*')) +
+              glob.glob(os.path.join(settings.ROOT, 'root', '.*'))):
         shutil.copy(f, OUTPUT_PATH)
 
     # Place static files into output dir.
