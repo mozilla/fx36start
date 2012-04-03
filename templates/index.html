@@ -2,22 +2,205 @@
 <html lang="{{ LANG }}" dir="{{ DIR }}">
 <head>
   <meta charset="utf-8">
-  <title>...</title>
-  <link rel="stylesheet" media="screen,projection,tv" href="css/removeme.css">
+  <title>{{ _('Mozilla Firefox Start Page') }}</title>
+  <link rel="stylesheet" href="css/common.css">
   <link rel="icon" type="image/png" href="img/favicon.png">
-  <!--[if IE]><link rel="shortcut icon" href="img/favicon.ico"><![endif]-->
 </head>
 <body>
 
-  <h1>{{ _('Hello') }}</h1>
+<div style="margin-top: 40px;">
+  <form action="http://google.com/search" name="f">
+    <table id="frame" style="margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+        <tr>
+          <td><img height="20" width="1"></td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" cellpadding="0" cellspacing="0" dir="ltr">
+              <tbody>
+                <tr>
+                  <td>
+                    <div title="{{ _('Firefox Start') }}" style="background: url('img/sprite2.png') no-repeat scroll 0% 0% transparent; height: 95px; margin-top: 21px; width: 430px;"></div>
+                  </td>
+                  <td style="overflow: hidden;" width="100%">
+                    <div style="background: url('img/gradsprite2.png') repeat-x scroll 0pt 0pt transparent; height: 95px; margin-top: 21px; width: 100%;"></div>
+                  </td>
+                  <td>
+                    <div title="{{ _('Firefox Logo') }}" style="background: url('img/sprite2.png') no-repeat scroll -440px 0pt transparent; height: 116px; width: 105px;"></div>
+                  </td>
+                  <td>
+                    <div title="{{ _('Firefox Logo') }}" style="background: url('img/sprite2.png') no-repeat scroll -545px 0pt transparent; height: 116px; margin-right: 4px; width: 15px;"></div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table border="0" cellpadding="0" cellspacing="0" width="100%" dir="ltr">
+              <tbody>
+                <tr>
+                  <td style="border-left: 1px solid #ababab;" width="4">&nbsp;</td>
+                  <td width="534">
+                    <table cellpadding="0" cellspacing="0" dir="{{ DIR }}">
+                      <tbody>
+                        <tr>
+                          <td width="40">
+                            <img height="1" width="40">
+                          </td>
+                          <td width="494">
+                            <table cellpadding="0" cellspacing="0">
+                              <tbody>
+                                <tr>
+                                  <td>
+                                    <div title="Google" style="background: url('img/sprite2.png') no-repeat scroll 0pt -95px transparent; height: 23px; margin: 5px 0pt 4px 4px; width: 80px;"></div>
+                                  </td>
+                                </tr>
+                              </tbody>
+                            </table>
+                            <table cellpadding="0" cellspacing="0" width="494" dir="{{ DIR }}">
+                              <tbody>
+                                <tr>
+                                  <td nowrap="nowrap" style="width: 394; overflow: hidden;">
+                                    <input name="client" value="firefox-a" type="hidden">
+                                    <input name="rls" value="org.mozilla:en-US:official" type="hidden">
+                                    <input name="channel" value="s" type="hidden">
+                                    <input name="hl" value="en" type="hidden">
+                                    <input name="source" value="hp" type="hidden">
+                                    <input name="biw" type="hidden">
+                                    <input name="bih" type="hidden">
+                                    <input style="outline: medium none; width: 374px;" spellcheck="false" autocomplete="off" dir="ltr" id="sf" maxlength="256" name="q">
+                                    <br>
+                                    <input value="{{ _('Google Search') }}" name="btnG" type="submit">
+                                  </td>
+                                  <td nowrap="nowrap" valign="top" style="width: 100px; line-height: 12px;">
+                                    <font size="-2">
+                                        <a href="http://www.google.com/advanced_search?hl=en">{{ _('Advanced search') }}</a>
+                                        <br>
+                                        <a href="http://www.google.com/preferences?hl=en">{{ _('Preferences') }}</a>
+                                    </font>
+                                  </td>
+                                  <td>&nbsp;</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td style="border-right: 1px solid #b0b0b0;" width="4">&nbsp;</td>
+                  <td width="19">&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0" dir="ltr">
+              <tbody>
+                <tr>
+                  <td width="47">
+                    <div style="background: url('img/sprite2.png') no-repeat scroll 0pt -118px transparent; height: 34px; width: 47px;"></div>
+                  </td>
+                  <td valign="bottom" width="1">
+                    <div style="background: none repeat scroll 0% 0% rgb(176, 176, 176); height: 1px; width: 1px"></div>
+                  </td>
+                  <td width="497">
+                    <div style="background: url('img/sprite2.png') no-repeat scroll -48px -118px transparent; height: 34px; width: 497px;"></div>
+                  </td>
+                  <td width="19">&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <table cellpadding="0" cellspacing="0" width="100%" dir="ltr">
+              <tbody>
+                <tr>
+                  <td>
+                    <br>
+                    <table border="0" cellpadding="4" cellspacing="0" width="545">
+                      <tbody>
+                        <tr>
+                          <td><img alt="" src="img/Fx4Launch.png" height="50" width="40"></td>
+                          <td dir="{{ DIR }}">
+                            <font size="-1">
+                              {{ _("You're not on the latest version of Firefox.") }}
+                              {{ _('<a href="{0}">Upgrade today</a> to get the best of the Web!')|f('http://www.mozilla.com/?WT.mc_id=s17') }}
+                            </font>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <br>
+                    <table border="0" cellpadding="4" cellspacing="0" width="100%">
+                      <tbody>
+                        <tr>
+                          <td align="center" nowrap="nowrap">
+                            <font size="-1">
+                              <a href="http://www.mozilla.org/about/?utm_source=gsnippet&amp;utm_content=aboutlink&amp;utm_campaign=s170210">{{ _('About Mozilla') }}</a>
+                              - <a href="http://support.mozilla.com/en-US/kb/?S100719_support&amp;WT.mc_ev=click">{{ _('Firefox Support') }}</a>
+                            </font>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </td>
+                  <td><img height="1" width="19"></td>
+                </tr>
+              </tbody>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <input name="oq" type="hidden">
+    <input name="aq" type="hidden">
+    <input name="aqi" type="hidden">
+    <input name="aql" type="hidden">
+    <input name="gs_l" type="hidden">
+  </form>
+</div>
 
-  <p>{{ _('This is '
-          'a really '
-          'long string.') }}</p>
+<div id="modal">
+  <div id="modal-top"></div>
+  <img id="alert" src="img/alert.png" alt="" width="54" height="46" />
+  <div id="modal-content">
 
-  <p>{{ _('I am untranslated in the lang file.') }}</p>
+  {% if VERSION == 'urgent' %}
+    <strong>{{ _('Important') }}:</strong>
+    <h1>{{ _('Your Firefox is out of date!') }}</h1>
 
-  <script src="js/removeme.js"></script>
+    <p>{{ _('Please download the latest version to continue.') }}</p>
+  {% else %}
+    <h1>{{ _('Your browser is out of date.') }}</h1>
+
+    <p>{{ _('Upgrade today for the latest in speed and security.') }}</p>
+  {% endif %}
+
+    {# if translation 'free download' is long, add 'no-arrow' class to <a> tag below #}
+    <a href="http://mozilla.org/firefox" class="download" title="{{ _('Free Download') }}">
+      <span>{{ _('Free Download') }}</span>
+      <img src="img/down-arrow.png" width="34" height="27" />
+      <div class="clear"></div>
+    </a>
+
+    <a href="#close" class="small dismiss">{{ _("No thanks, I'll risk it.") }}</a>
+
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div id="shade" class="{{ VERSION }}"></div>
+
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/ffx36.js"></script>
 
 </body>
 </html>

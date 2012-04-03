@@ -20,16 +20,16 @@ The localization files live in SVN. Check them out into the subdirectory
 
 ### Generating output files
 
-Specify an output directory (it shouldn't be the same directory as the
-repo) and allow a few seconds for the script to scrape Mozilla's FTP
-server.
+Specify a version (passive or urgent) and an output directory (it shouldn't be
+the same directory as the repo) and allow a few seconds for the script to scrape
+Mozilla's FTP server.
 
-    ./generate.py --output-dir html
+    ./generate.py --version passive --output-dir html
 
 To delete the output dir before generating the output (careful!), use
 the --force option.
 
-    ./generate.py --output-dir html -f
+    ./generate.py --version passive --output-dir html -f
 
 ### Extracting .lang files
 
@@ -38,7 +38,7 @@ strings and add them to the .lang files.
 
     ./l10n_extract.py
 
-should do the trick. This relies on gettext for the extraction.
+should do the trick.
 
 ## License
 

@@ -7,3 +7,8 @@ def f(string, *args, **kwargs):
     """
     string = unicode(string)
     return string.format(*args, **kwargs)
+
+
+def load_filters(env):
+    """Load all filters and functions into jinja2 environment 'env'."""
+    env.filters['f'] = f  # |f(...)
