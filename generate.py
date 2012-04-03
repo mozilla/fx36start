@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+import glob
 import os
 import shutil
 import sys
@@ -81,6 +82,11 @@ def main():
             shutil.rmtree(OUTPUT_PATH)
     os.makedirs(OUTPUT_PATH)
 
+    # Copy "root" files into output dir's root.
+    for f in glob.glob(os.path.join(settings.ROOT, 'root', '*')):
+        shutil.copy(f, OUTPUT_PATH)
+
+    # Place static files into output dir.
     STATIC_PATH = os.path.join(OUTPUT_PATH, 'static')
     for folder in settings.STATIC_FOLDERS:
         folder_path = os.path.join(STATIC_PATH, folder)
