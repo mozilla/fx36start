@@ -27,7 +27,7 @@ ENV = jinja2.Environment(
         os.path.join(settings.ROOT, 'templates'),
     ]), extensions=[])
 # Hook up template filters.
-ENV.filters['f'] = helpers.f  # |f(...)
+helpers.load_filters(ENV)
 
 
 optparser = OptionParser(usage='%prog --output-dir=/tmp/path/example')

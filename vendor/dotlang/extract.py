@@ -13,58 +13,33 @@ import tempfile
 from os.path import join
 from subprocess import CalledProcessError, check_call
 
+import jinja2
+
+import helpers
 import settings
 from dotlang.translate import parse as parse_lang
 
 
+ENV = jinja2.Environment(
+    loader=jinja2.FileSystemLoader([
+        os.path.join(settings.ROOT, 'templates'),
+    ]), extensions=['jinja2.ext.i18n'])
+
+
 def gettext_extract():
-    """
-    Extract strings from templates, using gettext tools, then convert to
-    .lang.
-    """
-    try:
-        tmpdir = tempfile.mkdtemp()
-        potfile = join(tmpdir, 'messages.pot')
+    """Extract strings from templates, then convert to .lang."""
+    sys.stderr.write('Extracting strings from templates...\n')
 
-        sys.stderr.write('Extracting strings from templates...\n')
-        try:
-            check_call(['xgettext', '-L', 'Python', '-o', potfile] +
-                       glob.glob(join(settings.ROOT, 'templates', '*.html')))
-        except CalledProcessError, e:
-             sys.stderr.write('Error extracting strings: %s\n' % e)
-             sys.exit(1)
+    templates = glob.glob(join(settings.ROOT, 'templates', '*.html'))
 
-        extract_lang(potfile)
-        sys.stderr.write('Done.\n')
-    finally:
-        shutil.rmtree(tmpdir)
+    extracted = []
+    for tpl in templates:
+        for lnum, func, trans in ENV.extract_translations(open(tpl).read()):
+            if trans not in extracted:  # Avoid dupes.
+                extracted.append(trans)
 
-
-def _extract_content(s):
-    """Strip the first word and quotes from msgids."""
-    return s[s.find(' ')+1:].strip('"')
-
-
-def parse_po(path):
-    """Extract messages from a .pot file."""
-    msgs = []
-
-    if not os.path.exists(path):
-        return msgs
-
-    with codecs.open(path, 'r', 'utf-8') as lines:
-        msgid = None
-
-        for line in lines:
-            line = line.strip()
-            if line.startswith('msgid'):
-                msgid = _extract_content(line)
-            elif line.startswith('msgstr') and msgid:
-                msgs.append(msgid)
-            else:
-                msgid = None
-
-    return msgs
+    extract_lang(extracted)
+    sys.stderr.write('Done.\n')
 
 
 def lang_translations(lang_file):
@@ -77,8 +52,8 @@ def lang_translations(lang_file):
     return trans
 
 
-def extract_lang(potfile):
-    """Convert .pot file to .lang file."""
+def extract_lang(extracted):
+    """Merge extracted strings into .lang files."""
     for lang in settings.LANGS:
         if lang in settings.LANG_FALLBACK:
             sys.stderr.write('Skipping %s (falls back to %s)\n' % (
@@ -86,15 +61,16 @@ def extract_lang(potfile):
             continue
 
         sys.stderr.write('Creating %s/%s\n' % (lang, settings.LANG_FILENAME))
-        output_file = join(settings.LOCALE_DIR, lang, settings.LANG_FILENAME)
-        lang_trans = lang_translations(output_file)  # Existing translations
 
-        output_dir = os.path.dirname(output_file)
+        output_dir = join(settings.LOCALE_DIR, lang)
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
 
+        output_file = join(output_dir, settings.LANG_FILENAME)
+        lang_trans = lang_translations(output_file)  # Existing translations
+
         with codecs.open(output_file, 'a+', 'utf-8') as out:
             # Keep existing files in place, append new strings.
-            for msg in parse_po(potfile):
+            for msg in extracted:
                 if msg not in lang_trans:
                     out.write(";%s\n%s\n\n\n" % (msg, msg))

@@ -38,7 +38,7 @@ strings and add them to the .lang files.
 
     ./l10n_extract.py
 
-should do the trick. This relies on gettext for the extraction.
+should do the trick.
 
 ## License
 
