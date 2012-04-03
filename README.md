@@ -18,18 +18,26 @@ The localization files live in SVN. Check them out into the subdirectory
     cd fx36start
     svn checkout https://svn.mozilla.org/projects/l10n-misc/trunk/fx36start/locale/
 
+### Choosing a build version
+
+Specify a version to build in settings.py. Available versions are 'passive' and 'urgent'.
+'Passive' is the default.
+
 ### Generating output files
 
-Specify a version (passive or urgent) and an output directory (it shouldn't be
-the same directory as the repo) and allow a few seconds for the script to scrape
-Mozilla's FTP server.
+Specify an output directory (it shouldn't be the same directory as the repo) and allow
+a few seconds for the script to scrape Mozilla's FTP server.
 
-    ./generate.py --version passive --output-dir html
+    ./generate.py --output-dir html
 
 To delete the output dir before generating the output (careful!), use
 the --force option.
 
-    ./generate.py --version passive --output-dir html -f
+    ./generate.py --output-dir html -f
+
+The build version can be overwritten with the --version command line argument.
+
+    ./generate.py --version urgent --output-dir html -f
 
 ### Extracting .lang files
 

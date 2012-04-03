@@ -41,3 +41,6 @@ LANG_FALLBACK = {
     'oc': 'fr',
     #'ta': 'FIXME'
 }
+
+# View to build - specify either 'passive' or 'urgent'
+BUILD_VERSION = 'passive'
