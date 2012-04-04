@@ -39,10 +39,7 @@ def parse(path):
 def load(lang):
     """Load the dotlang files for the specific lang and cache them in
     django."""
-
-    lang_dirname = lang.replace('-', '_')
-    path = os.path.join(settings.LOCALE_DIR, lang_dirname,
-                        settings.LANG_FILENAME)
+    path = os.path.join(settings.LOCALE_DIR, lang, settings.LANG_FILENAME)
     trans = parse(path)
 
     CACHE['trans-%s' % lang] = trans
