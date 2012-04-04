@@ -12,6 +12,8 @@ FFX36.Common = (function() {
 
 				$('#modal').slideUp('fast');
 				$('#shade').fadeOut('fast');
+
+				$('#sf').focus();
 			});
 		}
 	}
