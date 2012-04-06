@@ -71,7 +71,7 @@
                                     <input name="source" value="hp" type="hidden">
                                     <input name="biw" type="hidden">
                                     <input name="bih" type="hidden">
-                                    <input style="outline: medium none; width: 374px;" spellcheck="false" autocomplete="off" dir="ltr" id="sf" maxlength="256" name="q">
+                                    <input style="outline: medium none; width: 374px;" spellcheck="false" autocomplete="off" id="sf" maxlength="256" name="q" dir="{{ DIR }}">
                                     <br>
                                     <input value="{{ _('Google Search') }}" name="btnG" type="submit">
                                   </td>
@@ -125,12 +125,12 @@
                 <tr>
                   <td>
                     <br>
-                    <table border="0" cellpadding="4" cellspacing="0" width="545">
+                    <table border="0" cellpadding="4" cellspacing="0" width="545" dir="{{ DIR }}">
                       <tbody>
                         <tr>
-                          <td><img class="upgrade-message" alt="" src="img/Fx4Launch.png" height="50" width="40"></td>
+                          <td><img class="upgradable" alt="" src="img/Fx4Launch.png" height="50" width="40"></td>
                           <td dir="{{ DIR }}">
-                            <span class="upgrade-message">
+                            <span class="upgradable">
                               <font size="-1">
                                 {{ _("You're not on the latest version of Firefox.") }}
                                 {{ _('<a href="{0}">Upgrade today</a> to get the best of the Web!')|f('http://www.mozilla.com/?WT.mc_id=s17') }}
