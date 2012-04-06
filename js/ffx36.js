@@ -3,6 +3,8 @@ var FFX36 = window.FFX36 || {};
 FFX36.Common = (function() {
 	function _init() {
 		if (_is_upgradable()) {
+			$('.upgrade-message').show();
+
 			$('#shade').fadeIn('fast', function() {
 				$('#modal').slideDown('fast');
 			});
