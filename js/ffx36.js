@@ -5,6 +5,8 @@ FFX36.Common = (function() {
 		if (_is_upgradable()) {
 			$('.upgrade-message').show();
 
+			_break_button_text();
+
 			$('#shade').fadeIn('fast', function() {
 				$('#modal').slideDown('fast');
 			});
@@ -17,6 +19,22 @@ FFX36.Common = (function() {
 
 				$('#sf').focus();
 			});
+		}
+	}
+
+	function _break_button_text() {
+		var text = $('a.download span:first').text();
+		var pieces = text.split(' ');
+
+		// if we have a space in the text, insert a <br> close to the middle
+		if (pieces.length > 0) {
+			var br_pos = Math.floor((pieces.length/2)) - 1;
+			var new_html = '';
+			for (var i = 0; i < pieces.length; i++) {
+				new_html += pieces[i] + ((br_pos === i) ? '<br />' : ' ');
+			}
+
+			$('a.download span:first').html(new_html);
 		}
 	}
 
