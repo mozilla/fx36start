@@ -39,12 +39,10 @@ FFX36.Common = (function() {
 	}
 
 	function _is_upgradable() {
-		// check Mac PPC
-		if (/(PPC|Mac OS X 10.[0-4])/.test(navigator.userAgent)) {
+		// check Mac PPC & version 3.6
+		if ( (/(PPC|Mac OS X 10.[0-4])/.test(navigator.userAgent)) || (/(Firefox\/3.6)/.test(navigator.userAgent) === false) ) {
 			return false;
 		}
-
-		// check unsupported locales
 
 		// upgradable if no conditions match
 		return true;
