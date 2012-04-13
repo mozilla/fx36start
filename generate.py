@@ -95,7 +95,7 @@ def main():
 
     for lang in settings.LANGS:
         # Make language dir, or symlink to fallback language
-        LANG_PATH = os.path.join(OUTPUT_PATH, lang.lower())
+        LANG_PATH = os.path.join(OUTPUT_PATH, lang)
         if lang in settings.LANG_FALLBACK:
             os.symlink(settings.LANG_FALLBACK[lang], LANG_PATH)
             continue
