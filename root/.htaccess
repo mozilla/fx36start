@@ -1,9 +1,0 @@
-RewriteEngine On
-
-# Break endless loop.
-RewriteCond %{ENV:REDIRECT_STATUS} 200
-RewriteRule .* - [L]
-
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{HTTP_HOST} ^([-a-z]{2,5})\.start.*$
-RewriteRule (.*) /%1/$1 [L]
