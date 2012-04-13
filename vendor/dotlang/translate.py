@@ -62,4 +62,9 @@ def translate(lang, text, warn=True):
         if warn:
             logging.warning('Unknown text "%s" for language %s' % (text, lang))
         translated = text
+
+    # {ok} is a marker used to denote that a string can remain untranslated
+    if translated.endswith(' {ok}'):
+        translated = translated[:-5]
+
     return translated
