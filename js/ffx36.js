@@ -39,17 +39,13 @@ FFX36.Common = (function() {
 	}
 
 	function _is_upgradable() {
-		if ($.browser.mozilla) {
-			// parse version
-			var ua_chunks = navigator.userAgent.split('Firefox/');
+		var matches = /Firefox\/(\d+)/.exec(navigator.userAgent);
 
-			if (ua_chunks.length == 2) {
-				var version = parseFloat(navigator.userAgent.split('Firefox/')[1]);
+		if (matches !== null && matches.length > 1) {
+			var version = parseInt(matches[1], 10);
 
-				// check Firefox, Mac PPC, & version
-				if ( (/(PPC|Mac OS X 10.[0-4])/.test(navigator.userAgent) === false) && (version < 4) ) {
-					return true;
-				}
+			if ( (/(PPC|Mac OS X 10.[0-4])/.test(navigator.userAgent) === false) && (version < 4) ) {
+				return true;
 			}
 		}
 
