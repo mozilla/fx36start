@@ -2,6 +2,8 @@ var FFX36 = window.FFX36 || {};
 
 FFX36.Common = (function() {
 	function _init() {
+		$('#sf').focus();
+		
 		if (_is_upgradable()) {
 			$('.upgradable').show();
 
