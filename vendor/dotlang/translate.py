@@ -7,9 +7,13 @@ Lifted from Bedrock.
 import codecs
 import logging
 import os
+import re
 
 import settings
 
+
+# Metadata markers to be filtered out of translations.
+METADATA_MARKERS = re.compile(r'\s?{(ok|l10n-extra)}\s?')
 
 # Don't even THINK this is thread-safe.
 CACHE = {}
@@ -63,8 +67,7 @@ def translate(lang, text, warn=True):
             logging.warning('Unknown text "%s" for language %s' % (text, lang))
         translated = text
 
-    # {ok} is a marker used to denote that a string can remain untranslated
-    if translated.endswith(' {ok}'):
-        translated = translated[:-5]
+    # Filter out metadata markers {ok} and {l10n-extra}.
+    translated = re.sub(METADATA_MARKERS, '', translated)
 
     return translated
