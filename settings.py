@@ -34,15 +34,13 @@ RTL_LANGS = ('ar', 'fa', 'he')
 # fallbacks rather than generated on their owns. Both sides must exist in
 # LANGS.
 LANG_FALLBACK = {
-    # 'be': 'ru',
+    'be': 'ru',
     'en-GB': 'en-US',
     'es-CL': 'es-ES',
     'es-MX': 'es-ES',
     'ka': 'en-US',
-    #'mn': 'ru',
-    #'nn-NO': 'nb-NO',
+    'mn': 'ru',
     'oc': 'fr',
-    #'ta': 'FIXME'
 }
 
 # View to build - specify either 'passive' or 'urgent'
