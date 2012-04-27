@@ -5,6 +5,7 @@ ROOT = os.path.dirname(__file__)
 
 # Static folders. All of these will be copied into the output dir, and
 # symlinked from the locale directories.
+# Note that 'css' and 'js' are special and can be used to compress output.
 STATIC_FOLDERS = ['css', 'fonts', 'img', 'js']
 
 # L10n dir

@@ -3,7 +3,11 @@
 <head>
   <meta charset="utf-8">
   <title>{{ _('Mozilla Firefox Start Page') }}</title>
-  <link rel="stylesheet" href="css/common.css">
+  {% if MINIFY %}
+    <link rel="stylesheet" href="css/css-min.css">
+  {% else %}
+    <link rel="stylesheet" href="css/common.css">
+  {% endif %}
   <link rel="icon" type="image/png" href="img/favicon.png">
 </head>
 <body>
@@ -201,9 +205,13 @@
 
 <div id="shade" class="{{ VERSION }}"></div>
 
-<script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
-<script src="js/ffx36.js" type="text/javascript"></script>
-<script src="js/webtrends.js" type="text/javascript"></script>
+{% if MINIFY %}
+  <script src="js/js-min.js" type="text/javascript"></script>
+{% else %}
+  <script src="js/1-jquery-1.7.2.min.js" type="text/javascript"></script>
+  <script src="js/2-ffx36.js" type="text/javascript"></script>
+  <script src="js/3-webtrends.js" type="text/javascript"></script>
+{% endif %}
 
 <script type="text/javascript">
 //<![CDATA[
