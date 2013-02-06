@@ -5,6 +5,21 @@
   <title>{{ _('Mozilla Firefox Start Page') }}</title>
   <link rel="stylesheet" href="css/common.css">
   <link rel="icon" type="image/png" href="img/favicon.png">
+  
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-35433268-25']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+ </script>
+  
 </head>
 <body>
 
@@ -187,7 +202,7 @@
     <p>{{ _('Upgrade today for the latest in speed and security.') }}</p>
   {% endif %}
 
-    <a href="https://www.mozilla.org/firefox/?WT.mc_id=3.6EOL{% if VERSION == 'urgent' %}Red{% else %}Blue{% endif %}" class="download" title="{{ _('Free Download') }}">
+    <a href="https://www.mozilla.org/firefox/?utm_source=fx36start&utm_medium=banner&utm_campaign=3.6EOL{% if VERSION == 'urgent' %}Red{% else %}Blue{% endif %}" class="download" title="{{ _('Free Download') }}">
       <img class="logo" src="img/firefox-logo.png" width="93" height="27" />
       <span>{{ _('Free Download') }}</span>
       <img class="arrow" src="img/down-arrow.png" width="34" height="27" />
@@ -203,23 +218,6 @@
 
 <script src="js/jquery-1.7.2.min.js" type="text/javascript"></script>
 <script src="js/ffx36.js" type="text/javascript"></script>
-<script src="js/webtrends.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-//<![CDATA[
-var _tag=new WebTrends();
-_tag.dcsGetId();
-//]]>
-</script>
-<script type="text/javascript">
-//<![CDATA[
-_tag.dcsCustom=function(){}
-_tag.dcsCollect();
-//]]>
-</script>
-<noscript>
-<div><img alt="DCSIMG" id="DCSIMG" width="1" height="1" src="//statse.webtrendslive.com/dcsj4a4uwuz5bdmdwicyom3wj_6s6e/njs.gif?dcsuri=/nojavascript&amp;WT.js=No&amp;WT.tv=9.4.0&amp;dcssip=www.start.mozilla.org"/></div>
-</noscript>
 
 </body>
 </html>
