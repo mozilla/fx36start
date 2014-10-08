@@ -2,26 +2,57 @@ var FFX36 = window.FFX36 || {};
 
 FFX36.Common = (function() {
 	function _init() {
-		$('#sf').focus();
-		
+		var $sf = $('#sf');
+		var $modal, $shade;
+
+		$sf.focus();
+
 		if (_is_upgradable()) {
+			$modal = $('#modal');
+			$shade = $('#shade');
+
 			$('.upgradable').show();
 
 			_break_button_text();
 
-			$('#shade').fadeIn('fast', function() {
-				$('#modal').slideDown('fast');
+			$shade.fadeIn('fast', function() {
+				$modal.slideDown('fast');
 			});
 
 			$('a.dismiss').click(function(e) {
 				e.preventDefault();
 
-				$('#modal').slideUp('fast');
-				$('#shade').fadeOut('fast');
+				_ga_track(['_trackEvent', 'start.mozilla.org Interactions', 'link click', 'No thanks. I\'ll risk it.']);
 
-				$('#sf').focus();
+				$modal.slideUp('fast');
+				$shade.fadeOut('fast');
+
+				$sf.focus();
 			});
 		}
+
+		// track search form submit
+		$('#search-form').on('submit', function(e) {
+			e.preventDefault();
+
+			var $form = $(this);
+			$form.unbind('submit');
+
+			_ga_track(['_trackEvent', 'start.mozilla.org Interactions', 'Submit', 'Google Search'], function() {
+				$form.submit();
+			});
+		});
+
+		// track clicks on modal download CTA
+		$('#download-cta').on('click', function(e) {
+			e.preventDefault();
+
+			var href = this.href;
+
+			_ga_track(['_trackEvent', 'start.mozilla.org Interactions', 'download button click', 'Firefox for Desktop'], function() {
+				window.location = href;
+			});
+		});
 	}
 
 	function _break_button_text() {
@@ -53,6 +84,48 @@ FFX36.Common = (function() {
 
 		// not upgradable if above conditions fail to match
 		return false;
+	}
+
+	// swiped from https://github.com/mozilla/bedrock/blob/master/media/js/base/global.js#L135
+	function _ga_track(eventArray, callback) {
+	    // submit eventArray to GA and call callback only after tracking has
+	    // been sent, or if sending fails.
+	    //
+	    // callback is optional.
+	    //
+	    // Example usage:
+	    //
+	    // $(function() {
+	    //      var handler = function(e) {
+	    //           var _this = this;
+	    //           e.preventDefault();
+	    //           $(_this).off('submit', handler);
+	    //           gaTrack(
+	    //              ['_trackEvent', 'Newsletter Registration', 'submit', newsletter],
+	    //              function() {$(_this).submit();}
+	    //           );
+	    //      };
+	    //      $(thing).on('submit', handler);
+	    // });
+
+	    var hasCallback = typeof(callback) === 'function';
+
+	    if (typeof(window._gaq) === 'object') {
+	        // send event to GA
+	        window._gaq.push(eventArray);
+	        // Only set up timer and hitCallback if a callback exists.
+	        if (hasCallback) {
+	            // Need a timeout in order for __utm.gif request to complete in
+	            // order to register the GA event, before excecuting the callback.
+	            setTimeout(callback, 600);
+	        }
+	    } else {
+	        // GA disabled or blocked or something, make sure we still
+	        // call the caller's callback:
+	        if (hasCallback) {
+	            callback();
+	        }
+	    }
 	}
 
 	return {
