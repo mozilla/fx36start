@@ -25,7 +25,7 @@
 <body>
 
 <div style="margin-top: 40px;">
-  <form action="http://google.com/search" name="f">
+  <form action="http://google.com/search" name="f" id="search-form">
     <table id="frame" style="margin-left: auto; margin-right: auto;" border="0" cellpadding="0" cellspacing="0">
       <tbody>
         <tr>
@@ -203,7 +203,7 @@
     <p>{{ _('Upgrade today for the latest in speed and security.') }}</p>
   {% endif %}
 
-    <a href="https://www.mozilla.org/firefox/?utm_source=fx36start&utm_medium=banner&utm_campaign=3.6EOL{% if VERSION == 'urgent' %}Red{% else %}Blue{% endif %}" class="download" title="{{ _('Free Download') }}">
+    <a href="https://www.mozilla.org/firefox/?utm_source=fx36start&amp;utm_medium=banner&amp;utm_campaign=3.6EOL{% if VERSION == 'urgent' %}Red{% else %}Blue{% endif %}" class="download" title="{{ _('Free Download') }}" id="download-cta">
       <img class="logo" src="img/firefox-logo.png" width="93" height="27" />
       <span>{{ _('Free Download') }}</span>
       <img class="arrow" src="img/down-arrow.png" width="34" height="27" />
