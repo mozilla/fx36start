@@ -198,18 +198,27 @@
 
     <p>{{ _('Please download the latest version to continue.') }}</p>
   {% else %}
-    <h1>{{ _('Your browser is out of date.') }}</h1>
+    <h1>{{ _('A message about your browser') }}</h1>
 
-    <p>{{ _('Upgrade today for the latest in speed and security.') }}</p>
+    <p class="browser-msg" id="fx3">
+      {{ _("You're using Firefox 3, which was amazing in 2010, but why not try a brand new version of Firefox instead?") }}
+      {{ _("It's better, more secure and only takes a minute to update.") }}
+    </p>
+
+    <p class="browser-msg" id="fx4">
+      {{ _("You're using Firefox 4, which was amazing in 2011, but why not try a brand new version of Firefox instead?") }}
+      {{ _("It's better, more secure and only takes a minute to update.") }}
+    </p>
+
+    <p class="browser-msg" id="fxother">
+      {{ _('Looks like you’re using an older version of Firefox. Update to stay fast and safe.') }}
+    </p>
   {% endif %}
 
-    <a href="https://www.mozilla.org/firefox/?utm_source=fx36start&amp;utm_medium=banner&amp;utm_campaign=3.6EOL{% if VERSION == 'urgent' %}Red{% else %}Blue{% endif %}" class="download" title="{{ _('Free Download') }}" id="download-cta">
-      <img class="logo" src="img/firefox-logo.png" width="93" height="27" />
-      <span>{{ _('Free Download') }}</span>
-      <img class="arrow" src="img/down-arrow.png" width="34" height="27" />
-      <div class="clear"></div>
+    <a href="https://www.mozilla.org/firefox/new/?utm_source=fx36start&amp;utm_medium=banner&amp;utm_campaign=3.6EOLBlue{% if VERSION == 'urgent' %}Red{% else %}Blue{% endif %}" class="download" title="{{ _('Free Download') }}" id="download-cta">
+      <span>{{ _('Update Firefox Now') }}</span>
     </a>
-
+    <br />
     <a href="#close" title="{{ _("No thanks, I'll risk it.") }}" class="small dismiss">{{ _("No thanks, I'll risk it.") }}</a>
   </div>
   <div class="clear"></div>

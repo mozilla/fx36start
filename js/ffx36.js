@@ -13,8 +13,6 @@ FFX36.Common = (function() {
 
 			$('.upgradable').show();
 
-			_break_button_text();
-
 			$shade.fadeIn('fast', function() {
 				$modal.slideDown('fast');
 			});
@@ -55,34 +53,32 @@ FFX36.Common = (function() {
 		});
 	}
 
-	function _break_button_text() {
-		var text = $('a.download span:first').text();
-		var pieces = text.split(' ');
-
-		// if we have a space in the text, insert a <br> close to the middle
-		if (pieces.length > 0) {
-			var br_pos = Math.floor((pieces.length/2)) - 1;
-			var new_html = '';
-			for (var i = 0; i < pieces.length; i++) {
-				new_html += pieces[i] + ((br_pos === i) ? '<br />' : ' ');
-			}
-
-			$('a.download span:first').html(new_html);
-		}
-	}
-
 	function _is_upgradable() {
 		var matches = /Firefox\/(\d+)/.exec(navigator.userAgent);
 
+		// if using Fx
 		if (matches !== null && matches.length > 1) {
 			var version = parseInt(matches[1], 10);
 
-			if ( (/(PPC|Mac OS X 10.[0-4])/.test(navigator.userAgent) === false) && (version < 4) ) {
+			// make sure platform is upgradeable (not on PPC or OS X 10.0 - 10.4)
+			if ( (/(PPC|Mac OS X 10.[0-4])/.test(navigator.userAgent) === false) && (version < 29) ) {
+				// display appropriate message
+				if (version === 3) {
+					$('#fx3').show();
+				} else if (version === 4) {
+					$('#fx4').show();
+				} else {
+					$('#fxother').show();
+				}
+
 				return true;
 			}
+		// if not using Fx, redirect
+		} else {
+			document.location.href = 'https://www.mozilla.org/firefox/desktop/';
 		}
 
-		// not upgradable if above conditions fail to match
+		// not upgradeable if above conditions fail to match
 		return false;
 	}
 
