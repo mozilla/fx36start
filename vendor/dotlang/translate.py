@@ -31,6 +31,9 @@ def parse(path):
 
         for line in lines:
             line = line.strip()
+            if line.startswith('#'):
+                continue
+
             if line != '':
                 if line[0] == ';':
                     source = line
