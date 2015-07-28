@@ -73,9 +73,6 @@ FFX36.Common = (function() {
 
 				return true;
 			}
-		// if not using Fx, redirect
-		} else {
-			document.location.href = 'https://www.mozilla.org/firefox/desktop/';
 		}
 
 		// not upgradeable if above conditions fail to match
