@@ -22,10 +22,10 @@ pushd $CODE_DIR
 git pull
 
 if [ ! -d "locale" ]; then
-    svn checkout https://svn.mozilla.org/projects/l10n-misc/trunk/fx36start/locale/
+    git clone https://github.com/mozilla-l10n/fx36start-l10n locale
 fi
 pushd locale
-svn up
+git pull
 popd
 
 ./generate.py --output-dir $WEB_DIR -f --nowarn

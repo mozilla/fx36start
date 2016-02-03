@@ -12,11 +12,11 @@ bunch of static, localized output files.
 
     git clone git://github.com/mozilla/fx36start.git
 
-The localization files live in SVN. Check them out into the subdirectory
+The localization files live in GitHub. Check them out into the subdirectory
 "locale" to pull in translations.
 
     cd fx36start
-    svn checkout https://svn.mozilla.org/projects/l10n-misc/trunk/fx36start/locale/
+    git clone https://github.com/mozilla-l10n/fx36start-l10n locale
 
 ### Choosing a build version
 
